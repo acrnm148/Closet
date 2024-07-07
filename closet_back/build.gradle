@@ -26,6 +26,12 @@ repositories {
 def queryDslVersion = '5.0.0'
 
 dependencies {
+    /* myBatis */
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+    /* myBatis */
+    runtimeOnly('com.h2database:h2')
+
     /* redis */
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 

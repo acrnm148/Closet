@@ -1,29 +1,33 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/closet?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: 1234
-  application:
-    name: closet_back
-  security:
-    user:
-      name: user
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/closet?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      username: root
+      password: 1234
+    readonly:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/toy?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      username: root
       password: 1234
   jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
-        show_sql: true  # ??, ????, ??? ???? - false? ?? // SQL ?? 3? ??? ??? ??
-        format_sql: true  # ??, ????, ??? ???? - false? ?? // SQL ??? ??(?? ??? ?)
-        use_sql_comments: true  # ??,  ????, ??? ???? - false? ?? // ?? ??
-        default_batch_fetch_size: 500
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
     hibernate:
-      ddl-auto: create # ??, ????, ??? ????? ??? ???! - none?? ?? (ddl ?? ??)
+      ddl-auto: create-drop
     open-in-view: false
     show_sql: true
-  redis:
-    lettuce:
-      pool:
-      port: 6379
-      host: 127.0.0.1
-      password:
+#  redis:
+#    lettuce:
+#      port: 6379
+#      host: 127.0.0.1
+#      password:
+logging:
+  level:
+    org.hibernate.sql: debug
+    org.hibernate.type: trace
