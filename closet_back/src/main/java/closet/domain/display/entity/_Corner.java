@@ -1,6 +1,5 @@
 package closet.domain.display.entity;
 
-import closet.global.config.jpa.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,41 +10,17 @@ import lombok.*;
 //@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "t_kh_fndn_corner_mngm_m")
-public class Corner extends BaseTimeEntity {
+@Table(name = "corners")
+public class _Corner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fndn_corner_mngm_srmb", nullable = false)
-    private Long fndnCornerMngmSrmb;
+    private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "fndn_dspl_mngm_srmb", nullable = false)
-//    private Display display;
-
-    @Column(name = "fndn_corner_patr_code")
-    private String fndnCornerPatrCode;
-
-    @Column(name = "fndn_corner_name")
-    private String fndnCornerName;
-
-    @Column(name = "dspl_ysno")
-    private String dsplYsno;
-
-    @Column(name = "dspl_sttg_dttm")
-    private String dsplSttgDttm;
-
-    @Column(name = "dspl_end_dttm")
-    private String dsplEndDttm;
-
-    @Column(name = "crtr_id")
-    private String crtrId;
-
-    @Column(name = "amnr_id")
-    private String amnrId;
-
-    @Column(name = "dlt_ysno")
-    private String dltYsno;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fndn_dspl_mngm_srmb", nullable = false)
+    private _Display display;
 
 //    @Builder
 //    public Corner(Long fndnCornerMngmSrmb, /*Display display,*/ String fndnCornerPatrCode, String fndnCornerName, String dsplYsno, String dsplSttgDttm, String dsplEndDttm, String crtrId, String amnrId, String dltYsno) {
