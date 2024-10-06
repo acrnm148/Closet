@@ -23,3 +23,4 @@ public class BaseTimeEntity {
     @Column(name = "amnd_dttm")
     private LocalDateTime amndDttm;
 }
+
