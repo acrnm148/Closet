@@ -22,11 +22,11 @@ spring:
       ddl-auto: create-drop
     open-in-view: false
     show_sql: true
-#  redis:
-#    lettuce:
-#      port: 6379
-#      host: 127.0.0.1
-#      password:
+  redis:
+    lettuce:
+      port: 6379
+      host: 127.0.0.1
+      password:
 logging:
   level:
     org.hibernate.sql: debug
